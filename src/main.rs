@@ -1,6 +1,6 @@
+// Copyright 2024 Aleksander Dutkowski
 use crate::{calc::new_calc, mysqldb::new_mysql_db};
 
-// Copyright 2024 Aleksander Dutkowski
 pub mod calc;
 pub mod mysqldb;
 
@@ -16,9 +16,16 @@ fn main() {
 
     println!("Sum of 5 and 4 is {x}");
 
-    let mut db = new_mysql_db(15);
+    let db = new_mysql_db(15);
 
     let result = db.get_user_by_id(1);
+
+    let file = match result {
+        Ok(user) => user,
+        Err(error) => panic!("Problem: {:?}", error)
+    };
+
+    let result = db.get_user_by_id(2);
 
     let file = match result {
         Ok(user) => user,
