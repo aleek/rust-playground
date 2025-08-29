@@ -1,0 +1,9 @@
+[package]
+name = "winit-softbuffer-ab-glyph"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ab_glyph = "0.2.31"
+softbuffer = "0.4.6"
+winit = "0.30.12"

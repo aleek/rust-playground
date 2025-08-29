@@ -1,0 +1,12 @@
+[package]
+name = "speech_to_text"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cpal = "0.16.0"
+vosk = "0.3.1"
+
+[[example]]
+name = "process_audio_file"
+path = "examples/process_audio_file.rs"

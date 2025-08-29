@@ -1,1 +1,45 @@
-/target
+# Copyright 2024 Aleksander Dutkowski
+#
+# This software and whole contents of this git repository are Aleksander Dutkowski
+# copyrighted materials and your use of them is governed by the express license
+# under which they were provided to you.
+# No part of this publication may be reproduced, distributed, or transmitted
+# in any form or by any means, including photocopying, recording, or other electronic
+# or mechanical methods, without the prior written permission of the author.
+# This software and related documents are provided AS IS, and withour any express
+# or implied warranties, including, without limitation, the implied warranties
+# of merchantability and fitness for a particular purpose.
+
+# Ignore everything
+*
+!*/
+
+# Dont ignore go files
+!*.go
+!go.mod
+!go.sum
+
+# Don't ignore rust files
+!*.rs
+!Cargo.lock
+!Cargo.toml
+
+# Don't ignore documentation
+!docs/**/*.md
+
+# Don't ignore submodules
+!3rdparty/**
+
+# but ignore rust's target dir
+target/**
+
+# Don't ignore common files
+!README.md
+!LICENSE
+!.gitlab-ci.yml
+!.gitignore
+!.gitmodules
+!.gitattributes
+!.licenserc.yml
+!golangci.yml
+!.golangci.yml

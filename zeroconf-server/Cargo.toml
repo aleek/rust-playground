@@ -1,0 +1,8 @@
+[package]
+name = "zeroconf-server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+libmdns = "0.9.1"
+tiny_http = "0.12"
