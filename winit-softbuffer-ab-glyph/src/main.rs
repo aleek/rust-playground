@@ -23,9 +23,9 @@ fn render_text(buffer: &mut [u32], width: u32, height: u32, text: &str, font: &F
         let glyph = glyph_id.with_scale_and_position(scale, point(current_x, y));
 
         if let Some(outlined) = font.outline_glyph(glyph) {
-            outlined.draw(|x, y, c| {
-                let px = x as i32;
-                let py = y as i32;
+            outlined.draw(|x_, y_, c| {
+                let px = x_ as i32 + current_x as i32;
+                let py = y_ as i32 + y as i32;
 
                 if px >= 0 && px < width as i32 && py >= 0 && py < height as i32 {
                     let index = py as usize * width as usize + px as usize;
@@ -39,10 +39,12 @@ fn render_text(buffer: &mut [u32], width: u32, height: u32, text: &str, font: &F
                     }
                 }
             });
+
+            current_x += outlined.px_bounds().width() as f32;
         }
 
         // Advance to next character position
-        current_x += 30.0; // Simple spacing
+        //current_x += 30.0; // Simple spacing
     }
 }
 
