@@ -2199,6 +2199,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "winit-softbuffer-raw-video"
+version = "0.1.0"
+dependencies = [
+ "softbuffer",
+ "winit",
+]
+
+[[package]]
 name = "winnow"
 version = "0.7.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"

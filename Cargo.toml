@@ -6,6 +6,7 @@ members = [
     "show-window-with-movie",
     "winit-softbuffer-ab-glyph",
     "winit-softbuffer-fontdue",
+    "winit-softbuffer-raw-video",
     "winit-softbuffer",
     "zeroconf-client",
     "zeroconf-server"
