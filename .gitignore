@@ -34,6 +34,9 @@
 target/**
 
 !font/**/*
+!utils/**/*
+
+!*.svg
 
 # Don't ignore common files
 !README.md

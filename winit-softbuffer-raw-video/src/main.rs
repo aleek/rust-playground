@@ -66,7 +66,7 @@ fn video_reader_thread(
     use std::fs::File;
     use std::io::Read;
 
-    let mut file = File::open("../out.yuv")?;
+    let mut file = File::open("out.yuv")?;
     let mut frame_buffer = vec![0u8; FRAME_SIZE];
     let mut frame_number = 0;
 
