@@ -9,7 +9,7 @@ use winit::keyboard::{Key, NamedKey};
 mod winit_app;
 
 fn load_font() -> FontArc {
-    let font_data = fs::read("font/static/Montserrat-Bold.ttf").expect("Failed to load font");
+    let font_data = fs::read("../font/static/Montserrat-Bold.ttf").expect("Failed to load font");
     FontArc::try_from_vec(font_data).expect("Failed to parse font")
 }
 
