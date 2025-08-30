@@ -2,7 +2,10 @@
 resolver = "2"
 
 members = [
-    "helloworld", "show-window-with-movie", "winit-softbuffer-ab-glyph",
+    "helloworld",
+    "show-window-with-movie",
+    "winit-softbuffer-ab-glyph",
+    "winit-softbuffer",
     "zeroconf-client",
     "zeroconf-server"
 ]

@@ -2140,6 +2140,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "winit-softbuffer"
+version = "0.1.0"
+dependencies = [
+ "softbuffer",
+ "winit",
+]
+
+[[package]]
 name = "winit-softbuffer-ab-glyph"
 version = "0.1.0"
 dependencies = [
