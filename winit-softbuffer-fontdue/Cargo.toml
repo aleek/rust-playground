@@ -1,0 +1,9 @@
+[package]
+name = "winit-softbuffer-fontdue"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+fontdue = "0.9.3"
+softbuffer = "0.4.6"
+winit = "0.30.12"
