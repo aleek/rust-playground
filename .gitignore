@@ -33,6 +33,8 @@
 # but ignore rust's target dir
 target/**
 
+!font/**/*
+
 # Don't ignore common files
 !README.md
 !LICENSE
