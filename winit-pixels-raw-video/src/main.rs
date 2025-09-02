@@ -82,6 +82,8 @@ fn video_reader_thread(
             break;
         }
 
+        let begin = Instant::now();
+
         // Read one frame
         let bytes_read = file.read(&mut frame_buffer)?;
         if bytes_read != FRAME_SIZE {
@@ -115,8 +117,12 @@ fn video_reader_thread(
 
         frame_number += 1;
 
-        // Sleep for frame duration
-        thread::sleep(FRAME_DURATION / 2);
+        let end = Instant::now();
+        let diff = end - begin;
+        if diff < FRAME_DURATION {
+            // Sleep for frame duration
+            thread::sleep(FRAME_DURATION - diff);
+        }
     }
 
     println!("Video reader thread finished");
