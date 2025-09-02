@@ -104,10 +104,11 @@ fn video_reader_thread(
         };
 
         // Send frame to main thread (non-blocking)
-        if frame_sender.try_send(frame).is_err() {
-            // Main thread is not keeping up, skip this frame
-            println!("Warning: Frame {} dropped - main thread not keeping up", frame_number);
-        }
+        // if frame_sender.try_send(frame).is_err() {
+        //     // Main thread is not keeping up, skip this frame
+        //     println!("Warning: Frame {} dropped - main thread not keeping up", frame_number);
+        // }
+        frame_sender.send(frame).unwrap();
 
         frame_number += 1;
 
@@ -213,9 +214,7 @@ impl ApplicationHandler for App {
             WindowEvent::RedrawRequested => {
                 // Try to receive a new frame
                 if let Some(receiver) = &self.frame_receiver {
-                    if let Ok(frame) = receiver.try_recv() {
-                        self.current_frame = Some(frame);
-                    }
+                    self.current_frame = Some(receiver.recv().unwrap());
                 }
 
                 if let Some(pixels) = &mut self.pixels {
@@ -279,13 +278,8 @@ impl ApplicationHandler for App {
     }
 
     fn about_to_wait(&mut self, _event_loop: &winit::event_loop::ActiveEventLoop) {
-        // Check if it's time to request a redraw
-        let now = Instant::now();
-        if now.duration_since(self.last_redraw) >= self.redraw_interval {
-            self.last_redraw = now;
-            if let Some(window) = &self.window {
-                window.request_redraw();
-            }
+        if let Some(window) = &self.window {
+            window.request_redraw();
         }
     }
 }
