@@ -8,3 +8,4 @@ error-iter = "0.4.1"
 log = "0.4.22"
 pixels = "0.14.0"
 winit = { version = "0.30.8", features = ["rwh_05"] }
+crossbeam-channel = "0.5.12"

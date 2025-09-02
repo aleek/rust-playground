@@ -3167,6 +3167,7 @@ dependencies = [
 name = "winit-pixels-raw-video"
 version = "0.1.0"
 dependencies = [
+ "crossbeam-channel",
  "error-iter",
  "log",
  "pixels 0.14.0",
