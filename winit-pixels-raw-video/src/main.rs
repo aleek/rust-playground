@@ -68,7 +68,7 @@ fn video_reader_thread(
     stop_signal: Arc<Mutex<bool>>,
 ) -> Result<(), Box<dyn std::error::Error>> {
     use std::fs::File;
-    use std::io::Read;
+    use std::io::{Read, Seek, SeekFrom};
 
     let mut file = File::open("../out.yuv")?;
     let mut frame_buffer = vec![0u8; FRAME_SIZE];
@@ -85,8 +85,11 @@ fn video_reader_thread(
         // Read one frame
         let bytes_read = file.read(&mut frame_buffer)?;
         if bytes_read != FRAME_SIZE {
-            println!("End of video file reached after {} frames", frame_number);
-            break;
+            println!("End of video file reached after {} frames, looping back to start", frame_number);
+            // Seek back to the beginning of the file
+            file.seek(SeekFrom::Start(0))?;
+            frame_number = 0;
+            continue;
         }
 
         // Extract Y, U, V planes
