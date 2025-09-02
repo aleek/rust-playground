@@ -3,11 +3,14 @@ resolver = "2"
 
 members = [
     "helloworld",
+    "pixels-winit-minimal-main",
     "show-window-with-movie",
+    "winit-softbuffer",
+    "winit-pixels",
+    "winit-pixels-raw-video",
     "winit-softbuffer-ab-glyph",
     "winit-softbuffer-fontdue",
     "winit-softbuffer-raw-video",
-    "winit-softbuffer",
     "zeroconf-client",
     "zeroconf-server"
 ]
