@@ -136,8 +136,6 @@ pub struct App {
     current_frame: Option<VideoFrame>,
     stop_signal: Arc<Mutex<bool>>,
     video_thread_handle: Option<thread::JoinHandle<()>>,
-    last_redraw: Instant,
-    redraw_interval: Duration,
 }
 
 fn main() -> Result<(), EventLoopError> {
@@ -165,8 +163,6 @@ fn main() -> Result<(), EventLoopError> {
         current_frame: None,
         stop_signal,
         video_thread_handle: Some(video_thread),
-        last_redraw: Instant::now(),
-        redraw_interval: Duration::from_millis(1000 / FPS as u64 / 2),
     };
 
     event_loop.run_app(&mut app)
